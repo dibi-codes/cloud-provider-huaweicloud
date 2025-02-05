@@ -22,14 +22,12 @@ spec:
         - key: node.cloudprovider.kubernetes.io/uninitialized
           value: "true"
           effect: NoSchedule
-        - key: node-role.kubernetes.io/master
-          effect: NoSchedule
         - key: node-role.kubernetes.io/control-plane
           effect: NoSchedule
       serviceAccountName: cloud-controller-manager
       containers:
         - name: huawei-cloud-controller-manager
-          image: swr.cn-north-4.myhuaweicloud.com/k8s-cloudprovider/huawei-cloud-controller-manager:v0.26.9
+          image: ghcr.io/dibi-codes/huawei-cloud-controller-manager:v0.32.1
           args:
             - /bin/huawei-cloud-controller-manager
             - --v=5
