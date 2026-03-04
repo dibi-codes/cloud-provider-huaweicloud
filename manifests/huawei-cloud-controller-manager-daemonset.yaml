@@ -29,7 +29,7 @@ spec:
       serviceAccountName: cloud-controller-manager
       containers:
         - name: huawei-cloud-controller-manager
-          image: ghcr.io/dibi-codes/huawei-cloud-controller-manager:v0.35.2
+          image: ghcr.io/dibi-codes/huawei-cloud-controller-manager:v0.35.2-1-g9dce3cd5
           args:
             - /bin/huawei-cloud-controller-manager
             - --v=5
