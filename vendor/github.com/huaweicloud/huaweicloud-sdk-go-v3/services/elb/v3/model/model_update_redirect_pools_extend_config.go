@@ -6,10 +6,10 @@ import (
 	"strings"
 )
 
-// UpdateRedirectPoolsExtendConfig 参数解释：转发到的后端主机组的URL配置。
+// UpdateRedirectPoolsExtendConfig **参数解释**：转发到的后端服务器组的配置。  **约束限制**：当action为REDIRECT_TO_POOL时生效。
 type UpdateRedirectPoolsExtendConfig struct {
 
-	// 参数解释：是否开启url重定向
+	// **参数解释**：是否开启url重定向。  **约束限制**：不涉及  **取值范围**：true 开启，false 未开启。  **默认取值**：不涉及
 	RewriteUrlEnable *bool `json:"rewrite_url_enable,omitempty"`
 
 	RewriteUrlConfig *UpdateRewriteUrlConfig `json:"rewrite_url_config,omitempty"`
@@ -21,6 +21,8 @@ type UpdateRedirectPoolsExtendConfig struct {
 	TrafficLimitConfig *UpdateTrafficLimitConfig `json:"traffic_limit_config,omitempty"`
 
 	CorsConfig *CreateCorsConfig `json:"cors_config,omitempty"`
+
+	TrafficMirrorConfig *CreateTrafficMirrorConfig `json:"traffic_mirror_config,omitempty"`
 }
 
 func (o UpdateRedirectPoolsExtendConfig) String() string {

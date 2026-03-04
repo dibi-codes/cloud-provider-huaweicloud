@@ -5,6 +5,22 @@ import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ecs/v2/model"
 )
 
+type AcceptScheduledEventInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *AcceptScheduledEventInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *AcceptScheduledEventInvoker) Invoke() (*model.AcceptScheduledEventResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.AcceptScheduledEventResponse), nil
+	}
+}
+
 type AddServerGroupMemberInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -50,6 +66,22 @@ func (i *AttachServerVolumeInvoker) Invoke() (*model.AttachServerVolumeResponse,
 		return nil, err
 	} else {
 		return result.(*model.AttachServerVolumeResponse), nil
+	}
+}
+
+type BatchAddServerGroupMemberInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *BatchAddServerGroupMemberInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *BatchAddServerGroupMemberInvoker) Invoke() (*model.BatchAddServerGroupMemberResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.BatchAddServerGroupMemberResponse), nil
 	}
 }
 
@@ -101,6 +133,22 @@ func (i *BatchCreateServerTagsInvoker) Invoke() (*model.BatchCreateServerTagsRes
 	}
 }
 
+type BatchDeleteServerGroupMemberInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *BatchDeleteServerGroupMemberInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *BatchDeleteServerGroupMemberInvoker) Invoke() (*model.BatchDeleteServerGroupMemberResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.BatchDeleteServerGroupMemberResponse), nil
+	}
+}
+
 type BatchDeleteServerNicsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -133,6 +181,22 @@ func (i *BatchDeleteServerTagsInvoker) Invoke() (*model.BatchDeleteServerTagsRes
 	}
 }
 
+type BatchDetachVolumesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *BatchDetachVolumesInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *BatchDetachVolumesInvoker) Invoke() (*model.BatchDetachVolumesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.BatchDetachVolumesResponse), nil
+	}
+}
+
 type BatchRebootServersInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -162,6 +226,22 @@ func (i *BatchResetServersPasswordInvoker) Invoke() (*model.BatchResetServersPas
 		return nil, err
 	} else {
 		return result.(*model.BatchResetServersPasswordResponse), nil
+	}
+}
+
+type BatchResizeServersInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *BatchResizeServersInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *BatchResizeServersInvoker) Invoke() (*model.BatchResizeServersResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.BatchResizeServersResponse), nil
 	}
 }
 
@@ -293,6 +373,22 @@ func (i *ChangeVpcInvoker) Invoke() (*model.ChangeVpcResponse, error) {
 	}
 }
 
+type CreateLaunchTemplateInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *CreateLaunchTemplateInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *CreateLaunchTemplateInvoker) Invoke() (*model.CreateLaunchTemplateResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.CreateLaunchTemplateResponse), nil
+	}
+}
+
 type CreatePostPaidServersInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -338,6 +434,38 @@ func (i *CreateServersInvoker) Invoke() (*model.CreateServersResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.CreateServersResponse), nil
+	}
+}
+
+type DeleteLaunchTemplatesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteLaunchTemplatesInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *DeleteLaunchTemplatesInvoker) Invoke() (*model.DeleteLaunchTemplatesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteLaunchTemplatesResponse), nil
+	}
+}
+
+type DeleteRecycleBinServerInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *DeleteRecycleBinServerInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *DeleteRecycleBinServerInvoker) Invoke() (*model.DeleteRecycleBinServerResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.DeleteRecycleBinServerResponse), nil
 	}
 }
 
@@ -453,6 +581,38 @@ func (i *DisassociateServerVirtualIpInvoker) Invoke() (*model.DisassociateServer
 	}
 }
 
+type ExecuteServerDumpInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ExecuteServerDumpInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ExecuteServerDumpInvoker) Invoke() (*model.ExecuteServerDumpResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ExecuteServerDumpResponse), nil
+	}
+}
+
+type ExecuteServerRedeployInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ExecuteServerRedeployInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ExecuteServerRedeployInvoker) Invoke() (*model.ExecuteServerRedeployResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ExecuteServerRedeployResponse), nil
+	}
+}
+
 type ListCloudServersInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -501,6 +661,38 @@ func (i *ListFlavorsInvoker) Invoke() (*model.ListFlavorsResponse, error) {
 	}
 }
 
+type ListLaunchTemplateVersionsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListLaunchTemplateVersionsInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ListLaunchTemplateVersionsInvoker) Invoke() (*model.ListLaunchTemplateVersionsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListLaunchTemplateVersionsResponse), nil
+	}
+}
+
+type ListRecycleBinServersInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListRecycleBinServersInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ListRecycleBinServersInvoker) Invoke() (*model.ListRecycleBinServersResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListRecycleBinServersResponse), nil
+	}
+}
+
 type ListResizeFlavorsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -517,16 +709,30 @@ func (i *ListResizeFlavorsInvoker) Invoke() (*model.ListResizeFlavorsResponse, e
 	}
 }
 
+type ListScheduledEventsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListScheduledEventsInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ListScheduledEventsInvoker) Invoke() (*model.ListScheduledEventsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListScheduledEventsResponse), nil
+	}
+}
+
 type ListServerAzInfoInvoker struct {
 	*invoker.BaseInvoker
 }
 
-// Deprecated: This function is deprecated and will be removed in the future versions.
 func (i *ListServerAzInfoInvoker) GetBaseInvoker() *invoker.BaseInvoker {
 	return i.BaseInvoker
 }
 
-// Deprecated: This function is deprecated and will be removed in the future versions.
 func (i *ListServerAzInfoInvoker) Invoke() (*model.ListServerAzInfoResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
@@ -599,6 +805,22 @@ func (i *ListServerTagsInvoker) Invoke() (*model.ListServerTagsResponse, error) 
 	}
 }
 
+type ListServerVolumeAttachmentsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListServerVolumeAttachmentsInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ListServerVolumeAttachmentsInvoker) Invoke() (*model.ListServerVolumeAttachmentsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListServerVolumeAttachmentsResponse), nil
+	}
+}
+
 type ListServersByTagInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -630,6 +852,22 @@ func (i *ListServersDetailsInvoker) Invoke() (*model.ListServersDetailsResponse,
 		return nil, err
 	} else {
 		return result.(*model.ListServersDetailsResponse), nil
+	}
+}
+
+type ListTemplatesInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ListTemplatesInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ListTemplatesInvoker) Invoke() (*model.ListTemplatesResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ListTemplatesResponse), nil
 	}
 }
 
@@ -765,10 +1003,12 @@ type NovaListAvailabilityZonesInvoker struct {
 	*invoker.BaseInvoker
 }
 
+// Deprecated: This function is deprecated and will be removed in the future versions.
 func (i *NovaListAvailabilityZonesInvoker) GetBaseInvoker() *invoker.BaseInvoker {
 	return i.BaseInvoker
 }
 
+// Deprecated: This function is deprecated and will be removed in the future versions.
 func (i *NovaListAvailabilityZonesInvoker) Invoke() (*model.NovaListAvailabilityZonesResponse, error) {
 	if result, err := i.BaseInvoker.Invoke(); err != nil {
 		return nil, err
@@ -806,6 +1046,22 @@ func (i *NovaListServerSecurityGroupsInvoker) Invoke() (*model.NovaListServerSec
 		return nil, err
 	} else {
 		return result.(*model.NovaListServerSecurityGroupsResponse), nil
+	}
+}
+
+type NovaListServersInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *NovaListServersInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *NovaListServersInvoker) Invoke() (*model.NovaListServersResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.NovaListServersResponse), nil
 	}
 }
 
@@ -985,6 +1241,86 @@ func (i *ResizeServerInvoker) Invoke() (*model.ResizeServerResponse, error) {
 	}
 }
 
+type RevertRecycleBinServerInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *RevertRecycleBinServerInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *RevertRecycleBinServerInvoker) Invoke() (*model.RevertRecycleBinServerResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.RevertRecycleBinServerResponse), nil
+	}
+}
+
+type ShowAppendableVolumeQuotaInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowAppendableVolumeQuotaInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ShowAppendableVolumeQuotaInvoker) Invoke() (*model.ShowAppendableVolumeQuotaResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowAppendableVolumeQuotaResponse), nil
+	}
+}
+
+type ShowFlavorCapacityInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowFlavorCapacityInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ShowFlavorCapacityInvoker) Invoke() (*model.ShowFlavorCapacityResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowFlavorCapacityResponse), nil
+	}
+}
+
+type ShowMetadataOptionsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowMetadataOptionsInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ShowMetadataOptionsInvoker) Invoke() (*model.ShowMetadataOptionsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowMetadataOptionsResponse), nil
+	}
+}
+
+type ShowRecycleBinInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowRecycleBinInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ShowRecycleBinInvoker) Invoke() (*model.ShowRecycleBinResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowRecycleBinResponse), nil
+	}
+}
+
 type ShowResetPasswordFlagInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1001,6 +1337,22 @@ func (i *ShowResetPasswordFlagInvoker) Invoke() (*model.ShowResetPasswordFlagRes
 	}
 }
 
+type ShowSerialConsoleActionsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowSerialConsoleActionsInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ShowSerialConsoleActionsInvoker) Invoke() (*model.ShowSerialConsoleActionsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowSerialConsoleActionsResponse), nil
+	}
+}
+
 type ShowServerInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1014,6 +1366,22 @@ func (i *ShowServerInvoker) Invoke() (*model.ShowServerResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.ShowServerResponse), nil
+	}
+}
+
+type ShowServerAttachableNicNumInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *ShowServerAttachableNicNumInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *ShowServerAttachableNicNumInvoker) Invoke() (*model.ShowServerAttachableNicNumResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.ShowServerAttachableNicNumResponse), nil
 	}
 }
 
@@ -1113,6 +1481,86 @@ func (i *ShowServerTagsInvoker) Invoke() (*model.ShowServerTagsResponse, error) 
 	}
 }
 
+type UpdateMetadataOptionsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateMetadataOptionsInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *UpdateMetadataOptionsInvoker) Invoke() (*model.UpdateMetadataOptionsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateMetadataOptionsResponse), nil
+	}
+}
+
+type UpdateRecycleBinInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateRecycleBinInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *UpdateRecycleBinInvoker) Invoke() (*model.UpdateRecycleBinResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateRecycleBinResponse), nil
+	}
+}
+
+type UpdateRecycleBinPolicyInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateRecycleBinPolicyInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *UpdateRecycleBinPolicyInvoker) Invoke() (*model.UpdateRecycleBinPolicyResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateRecycleBinPolicyResponse), nil
+	}
+}
+
+type UpdateScheduledEventInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateScheduledEventInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *UpdateScheduledEventInvoker) Invoke() (*model.UpdateScheduledEventResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateScheduledEventResponse), nil
+	}
+}
+
+type UpdateSerialConsoleOptionsInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateSerialConsoleOptionsInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *UpdateSerialConsoleOptionsInvoker) Invoke() (*model.UpdateSerialConsoleOptionsResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateSerialConsoleOptionsResponse), nil
+	}
+}
+
 type UpdateServerInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -1158,6 +1606,22 @@ func (i *UpdateServerBlockDeviceInvoker) Invoke() (*model.UpdateServerBlockDevic
 		return nil, err
 	} else {
 		return result.(*model.UpdateServerBlockDeviceResponse), nil
+	}
+}
+
+type UpdateServerInterfaceInvoker struct {
+	*invoker.BaseInvoker
+}
+
+func (i *UpdateServerInterfaceInvoker) GetBaseInvoker() *invoker.BaseInvoker {
+	return i.BaseInvoker
+}
+
+func (i *UpdateServerInterfaceInvoker) Invoke() (*model.UpdateServerInterfaceResponse, error) {
+	if result, err := i.BaseInvoker.Invoke(); err != nil {
+		return nil, err
+	} else {
+		return result.(*model.UpdateServerInterfaceResponse), nil
 	}
 }
 

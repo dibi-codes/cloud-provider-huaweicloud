@@ -9,7 +9,7 @@ import (
 // CloneLoadbalancerRequestBody 复制负载均衡器接口请求体。
 type CloneLoadbalancerRequestBody struct {
 
-	// 参数解释：单次最大复制数量。  取值范围：1-10  默认取值：1
+	// **参数解释**：单次最大复制数量。  **约束限制**：不涉及  **取值范围**：1-10  **默认取值**：1
 	Count *int32 `json:"count,omitempty"`
 
 	TargetLoadbalancerParam *TargetLoadbalancerParam `json:"target_loadbalancer_param"`

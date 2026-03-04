@@ -2,7 +2,6 @@ package v2
 
 import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/def"
-
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/elb/v2/model"
 	"net/http"
 )
@@ -1448,6 +1447,18 @@ func GenReqDefForListCertificates() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Certificate").
 		WithJsonTag("certificate").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Source").
+		WithJsonTag("source").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ProtectionStatus").
+		WithJsonTag("protection_status").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("ProtectionReason").
+		WithJsonTag("protection_reason").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()

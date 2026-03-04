@@ -6,34 +6,37 @@ import (
 	"strings"
 )
 
-// SecurityPolicy 自定义安全策略信息
+// SecurityPolicy **参数解释**：自定义安全策略信息。
 type SecurityPolicy struct {
 
-	// 自定义安全安全策略的id。
+	// **参数解释**：自定义安全策略的ID。  **取值范围**：不涉及
 	Id string `json:"id"`
 
-	// 自定义安全策略的项目id。
+	// **参数解释**：自定义安全策略的项目ID。  **取值范围**：不涉及
 	ProjectId string `json:"project_id"`
 
-	// 自定义安全策略的名称
+	// **参数解释**：自定义安全策略的名称。  **取值范围**：不涉及
 	Name string `json:"name"`
 
-	// 自定义安全策略的描述。
+	// **参数解释**：自定义安全策略的描述。  **取值范围**：不涉及
 	Description string `json:"description"`
 
-	// 自定义安全策略关联的监听器。
+	// **参数解释**：关联的监听器。
 	Listeners []ListenerRef `json:"listeners"`
 
-	// 自定义安全策略的TLS协议列表。
+	// **参数解释**：自定义安全策略的TLS协议列表。  **取值范围**：不涉及
 	Protocols []string `json:"protocols"`
 
-	// 自定义安全策略的加密套件列表。
+	// **参数解释**：自定义安全策略的加密套件列表。  **取值范围**：不涉及
 	Ciphers []string `json:"ciphers"`
 
-	// 自定义安全策略的创建时间。
+	// **参数解释**：资源所属的企业项目ID。  **取值范围**： - \"0\"：表示资源属于default企业项目。 - UUID格式的字符串，表示非默认企业项目。  [不支持该字段，请勿使用。](tag:dt,hcso_dt)
+	EnterpriseProjectId *string `json:"enterprise_project_id,omitempty"`
+
+	// **参数解释**：创建时间。  **取值范围**：格式：yyyy-MM-dd'T'HH:mm:ss'Z'，UTC时区。
 	CreatedAt string `json:"created_at"`
 
-	// 自定义安全策略的更新时间。
+	// **参数解释**：更新时间。  **取值范围**：格式：yyyy-MM-dd'T'HH:mm:ss'Z'，UTC时区。
 	UpdatedAt string `json:"updated_at"`
 }
 
