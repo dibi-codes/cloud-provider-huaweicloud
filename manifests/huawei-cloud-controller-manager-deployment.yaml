@@ -21,8 +21,8 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
-                - key: node-role.kubernetes.io/control-plane
-                  operator: Exists
+                  - key: node-role.kubernetes.io/control-plane
+                    operator: Exists
       securityContext:
         runAsUser: 1001
       tolerations:
@@ -56,8 +56,6 @@ spec:
             - mountPath: /etc/config
               name: cloud-config-volume
               readOnly: true
-            - mountPath: /usr/libexec/kubernetes/kubelet-plugins/volume/exec
-              name: flexvolume-dir
           resources:
             requests:
               cpu: 200m
@@ -67,10 +65,6 @@ spec:
               memory: 2Gi
       hostNetwork: true
       volumes:
-        - hostPath:
-            path: /usr/libexec/kubernetes/kubelet-plugins/volume/exec
-            type: DirectoryOrCreate
-          name: flexvolume-dir
         - hostPath:
             path: /etc/kubernetes
             type: DirectoryOrCreate
