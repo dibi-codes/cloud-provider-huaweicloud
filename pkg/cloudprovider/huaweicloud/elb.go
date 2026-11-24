@@ -341,7 +341,7 @@ func (elb *ELBCloud) updateListenerMembers(
 		if err != nil {
 			msg := fmt.Sprintf("Add members of listener(%s) error: %v", listenerID, err)
 			elb.sendEvent("UpdateLoadBalancerFailed", msg, service)
-			return fmt.Errorf(msg)
+			return fmt.Errorf("%s", msg)
 		}
 		jobs = append(jobs, tempJobInfo{
 			jobID:  addJob.JobID,
@@ -357,7 +357,7 @@ func (elb *ELBCloud) updateListenerMembers(
 			if err != nil {
 				msg := fmt.Sprintf("Delete members of listener(%s) error: %v", listenerID, err)
 				elb.sendEvent("UpdateLoadBalancerFailed", msg, service)
-				return fmt.Errorf(msg)
+				return fmt.Errorf("%s", msg)
 			}
 			jobs = append(jobs, tempJobInfo{
 				jobID:  delJob.JobID,
