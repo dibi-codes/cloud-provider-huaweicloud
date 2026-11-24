@@ -64,6 +64,8 @@ const (
 	ElbID    = "kubernetes.io/elb.id"
 
 	ElbSubnetID          = "kubernetes.io/elb.subnet-id"
+	ElbBackendSubnetID   = "kubernetes.io/elb.backend.subnet-id"
+	ElbBackendIpVersion  = "kubernetes.io/elb.backend.ip-version"
 	ElbEipID             = "kubernetes.io/elb.eip-id"
 	ELBKeepEip           = "kubernetes.io/elb.keep-eip"
 	AutoCreateEipOptions = "kubernetes.io/elb.eip-auto-create-option"
@@ -145,15 +147,15 @@ func (b Basic) sendEvent(reason, msg string, service *v1.Service) {
 }
 
 func (b Basic) getSubnetID(service *v1.Service, node *v1.Node) (string, error) {
-	subnetID, err := b.getNodeSubnetID(node)
-	if err != nil {
-		klog.Warningf("unable to read subnet-id from the node, try reading from service or cloud-config, error: %s", err)
-	}
+	subnetID := getStringFromSvsAnnotation(service, ElbSubnetID, b.cloudConfig.VpcOpts.SubnetID)
 	if subnetID != "" {
 		return subnetID, nil
 	}
 
-	subnetID = getStringFromSvsAnnotation(service, ElbSubnetID, b.cloudConfig.VpcOpts.SubnetID)
+	subnetID, err := b.getNodeSubnetID(node)
+	if err != nil {
+		klog.Warningf("unable to read subnet-id from the node, try reading from service or cloud-config, error: %s", err)
+	}
 	if subnetID == "" {
 		return "", status.Errorf(codes.InvalidArgument, "missing subnet-id, "+
 			"can not to read subnet-id from service or cloud-config")
@@ -525,6 +527,10 @@ func (h *CloudProvider) LoadBalancer() (cloudprovider.LoadBalancer, bool) {
 
 // Instances returns an instances interface. Also returns true if the interface is supported, false otherwise.
 func (h *CloudProvider) Instances() (cloudprovider.Instances, bool) {
+	if !strings.Contains(h.cloudConfig.AuthOpts.InstanceVersion, "v1") {
+		return nil, false
+	}
+
 	instance := &Instances{
 		Basic: h.Basic,
 	}
@@ -555,11 +561,14 @@ func (*CloudProvider) ProviderName() string {
 // InstancesV2 is an implementation for instances and should only be implemented by external cloud providers.
 // Don't support this feature for now.
 func (h *CloudProvider) InstancesV2() (cloudprovider.InstancesV2, bool) {
-	instance := &Instances{
-		Basic: h.Basic,
+	if h.cloudConfig.AuthOpts.InstanceVersion == "" || strings.Contains(h.cloudConfig.AuthOpts.InstanceVersion, "v2") {
+		instance := &Instances{
+			Basic: h.Basic,
+		}
+		return instance, true
 	}
 
-	return instance, true
+	return nil, false
 }
 
 // ListClusters is an implementation of Clusters.ListClusters
@@ -753,7 +762,7 @@ func (e *LoadBalancerServiceListener) dispatcher(namespace, name, eType string, 
 
 	klog.Infof("Dispatcher service, namespace: %s, name: %s", namespace, name)
 
-	if eType == endpointAdded && (svc.Spec.LoadBalancerClass == nil || *svc.Spec.LoadBalancerClass != LoadBalancerClass) {
+	if eType == endpointAdded && svc.Spec.LoadBalancerClass != nil && *svc.Spec.LoadBalancerClass != LoadBalancerClass {
 		return
 	}
 	handle(svc, false)
