@@ -273,7 +273,7 @@ type EcsServers struct {
 }
 
 func NewELBClient(cloud, region, projectID, accessKey, secretKey string) *ELBClient {
-	elbEndpoint := fmt.Sprintf("https://ecs.%s.%s", region, cloud)
+	elbEndpoint := fmt.Sprintf("https://elb.%s.%s", region, cloud)
 	ecsEndpoint := fmt.Sprintf("https://ecs.%s.%s", region, cloud)
 
 	access := &AccessInfo{AccessKey: accessKey,
