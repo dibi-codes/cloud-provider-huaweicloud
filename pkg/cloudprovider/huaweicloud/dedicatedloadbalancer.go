@@ -687,18 +687,18 @@ func (d *DedicatedLoadBalancer) getMemberIP(service *v1.Service, node *v1.Node, 
 
 func getEndpointFromPod(service *v1.Service, pod v1.Pod, svcPort v1.ServicePort) (string, int32, error) {
 	klog.Infof("add member using the Pod's IP and port, service: %s/%s, name: %s, port: %s ",
-		service.Namespace, service.Name, svcPort.Name, svcPort.TargetPort)
+		service.Namespace, service.Name, svcPort.Name, svcPort.TargetPort.String())
 
 	ipVersion := getStringFromSvsAnnotation(service, ElbBackendIpVersion, "")
 	podIp := getPodIPByVersion(pod, ipVersion)
 
 	// get IP and port from Pod
 	if svcPort.TargetPort.Type == intstr.Int {
-		klog.V(6).Infof("targetPort is a number, service: %s/%s, port: %s ", service.Namespace, service.Name, svcPort.TargetPort)
+		klog.V(6).Infof("targetPort is a number, service: %s/%s, port: %s ", service.Namespace, service.Name, svcPort.TargetPort.String())
 		return podIp, svcPort.TargetPort.IntVal, nil
 	}
 
-	klog.V(6).Infof("targetPort is a name, service: %s/%s, port: %s ", service.Namespace, service.Name, svcPort.TargetPort)
+	klog.V(6).Infof("targetPort is a name, service: %s/%s, port: %s ", service.Namespace, service.Name, svcPort.TargetPort.String())
 	for _, c := range pod.Spec.Containers {
 		for _, p := range c.Ports {
 			if p.Name == svcPort.TargetPort.StrVal && string(p.Protocol) == string(svcPort.Protocol) {
