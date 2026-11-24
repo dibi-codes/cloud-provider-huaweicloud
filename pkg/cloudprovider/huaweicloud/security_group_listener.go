@@ -84,7 +84,7 @@ func (s *SecurityGroupListener) CreateSecurityGroupInformer() (cache.SharedIndex
 
 			ecsNode, err := s.ecsClient.GetByNodeName(kubeNode.Name)
 			if err != nil {
-				klog.Error("Add node: can not get kubernetes node name: %v", err)
+				klog.Errorf("Add node: can not get kubernetes node name: %v", err)
 				return
 			}
 			err = s.ecsClient.AssociateSecurityGroup(ecsNode.Id, s.securityGroupID)
@@ -103,7 +103,7 @@ func (s *SecurityGroupListener) CreateSecurityGroupInformer() (cache.SharedIndex
 
 			ecsNode, err := s.ecsClient.GetByNodeName(kubeNode.Name)
 			if err != nil {
-				klog.Error("Delete node: can not get kubernetes node name: %v", err)
+				klog.Errorf("Delete node: can not get kubernetes node name: %v", err)
 				return
 			}
 			err = s.ecsClient.DisassociateSecurityGroup(ecsNode.Id, s.securityGroupID)
